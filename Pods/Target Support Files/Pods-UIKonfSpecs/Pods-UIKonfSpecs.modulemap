@@ -1,0 +1,6 @@
+framework module Pods_UIKonfSpecs {
+  umbrella header "Pods-UIKonfSpecs-umbrella.h"
+
+  export *
+  module * { export * }
+}

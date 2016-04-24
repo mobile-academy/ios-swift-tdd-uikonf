@@ -1,0 +1,19 @@
+PODS:
+  - KinveyKit (1.40.7)
+  - Nimble (4.0.1)
+  - Quick (0.9.2)
+  - SlackTextViewController (1.9.2)
+
+DEPENDENCIES:
+  - KinveyKit
+  - Nimble
+  - Quick
+  - SlackTextViewController
+
+SPEC CHECKSUMS:
+  KinveyKit: 76c5e4b2865b6f490d481845c88d1b5d5ed986f7
+  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
+  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
+  SlackTextViewController: bac3350ccc639bc446bb14cbd09da238f5e01f32
+
+COCOAPODS: 0.39.0
