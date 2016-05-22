@@ -8,9 +8,12 @@ class ChatMessagesUpdater {
 
     var store: KCSAppdataStore
 
+    var chatMessagesParser: ChatMessagesParser
+
     init() {
         let collection = KCSCollection(fromString: "Messages", ofClass: NSDictionary.self)
         store = KCSAppdataStore(collection: collection, options: nil)
+        chatMessagesParser = ChatMessagesParser()
     }
 
     func updateChatMessages(completion: (result:[ChatMessage]?, error:NSError?) -> (Void)) {
@@ -22,7 +25,9 @@ class ChatMessagesUpdater {
 
             var parsedMessages: [ChatMessage]?
 
-            //TODO: Parse messages
+            if let unwrappedResult = result {
+                parsedMessages = self.chatMessagesParser.parseChatMessages(unwrappedResult)
+            }
 
             completion(result: parsedMessages, error: error)
         }, withProgressBlock: nil)

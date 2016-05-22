@@ -53,7 +53,32 @@ class ChatMessagesUpdaterSpec: QuickSpec {
 
                 describe("when the request is successful") {
 
-                    //TODO: Test me please!
+                    var chatMessage1: ChatMessage!
+                    var chatMessage2: ChatMessage!
+
+                    beforeEach {
+                        let fakeChatMessagesParser = FakeChatMessagesParser()
+
+                        chatMessage1 = ChatMessage(text: "Fixture Text 1")
+                        chatMessage2 = ChatMessage(text: "Fixture Text 2")
+
+                        fakeChatMessagesParser.returnedChatMessages = [chatMessage1, chatMessage2]
+
+                        fakeChatMessagesParser.expectedChatMessagesToParse = [["text": "Fixture Text 1"],
+                                                                              ["text": "Fixture Text 2"]]
+                        sut?.chatMessagesParser = fakeChatMessagesParser
+
+                        fakeStore?.simulateQuerySuccessWithResponse([["text": "Fixture Text 1"],
+                                                                     ["text": "Fixture Text 2"]])
+                    }
+
+                    it("should return the chat messages from its parser") {
+                        expect(capturedResult).to(equal([chatMessage1, chatMessage2]))
+                    }
+
+                    it("should return no error") {
+                        expect(capturedError).to(beNil())
+                    }
                 }
 
                 describe("when the request fails") {

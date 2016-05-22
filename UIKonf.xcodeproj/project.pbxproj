@@ -15,6 +15,7 @@
 		B27A9153025B699FA6BE2FEB /* DefaultChatMessagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9E299E617C9DCF0F5C1C /* DefaultChatMessagesProvider.swift */; };
 		B27A91A43A9005838B7104C1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9FA3AE3DE8013A548CBD /* main.swift */; };
 		B27A922BB503FC1CEA96BDDC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A999C236AF47285536FF3 /* RegistrationViewController.swift */; };
+		B27A930C252E10282BDFDE9D /* ChatMessagesParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9230302169B39138AC18 /* ChatMessagesParserSpec.swift */; };
 		B27A939123D1D433E6D334A3 /* MobileAcademyStyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9F339E198896D9FA2515 /* MobileAcademyStyleSheet.swift */; };
 		B27A93E2000C6CDBFB4B261F /* ChatMessagesUpdaterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9825F74CD9E375389E05 /* ChatMessagesUpdaterSpec.swift */; };
 		B27A93F55967C178F3CC4E1D /* KinveyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9849D0D1701867E2D251 /* KinveyClient.swift */; };
@@ -28,6 +29,8 @@
 		B27A991D0CF4556A8A90AB98 /* FakeChatMessagesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A95BA58441CB66F1E8CC5 /* FakeChatMessagesUpdater.swift */; };
 		B27A9A8F0BBE06E70BB5E177 /* DefaultChatMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9B29BDC4C309C082C252 /* DefaultChatMessagePresenter.swift */; };
 		B27A9A91F6398FC28AB879BE /* FakeKinveyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9ADDE170BA1A6E4E72CB /* FakeKinveyClient.swift */; };
+		B27A9ABD14858F4F13D0F130 /* ChatMessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9FA566206E55D008065A /* ChatMessagesParser.swift */; };
+		B27A9B3817601C0108222499 /* FakeChatMessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9941DF52FD8C90752C78 /* FakeChatMessagesParser.swift */; };
 		B27A9BBCB663409592CCE0CF /* ChatViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A94E4BE8B218D135200FD /* ChatViewControllerSpec.swift */; };
 		B27A9BC37A7131F6BB6A7BB5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A96106A2C16DF90F29EC7 /* RootViewController.swift */; };
 		B27A9BD95F15929E428CB328 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A9CBBDE9491E92A22EC40 /* AppDelegateSpec.swift */; };
@@ -62,6 +65,7 @@
 		9937B5DC2285EC7597E8D1AD /* Pods-UIKonf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKonf.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIKonf/Pods-UIKonf.release.xcconfig"; sourceTree = "<group>"; };
 		B27A919EA983473CEC0D70DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UIKonf/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		B27A91F262BBB86152045C65 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		B27A9230302169B39138AC18 /* ChatMessagesParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessagesParserSpec.swift; sourceTree = "<group>"; };
 		B27A92CAE7610D2F0DCE9343 /* UIKonf-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKonf-Bridging-Header.h"; sourceTree = "<group>"; };
 		B27A93217A03664FBCDC2AC5 /* DefaultChatMessagesProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultChatMessagesProviderSpec.swift; sourceTree = "<group>"; };
 		B27A94E4BE8B218D135200FD /* ChatViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewControllerSpec.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 		B27A9825F74CD9E375389E05 /* ChatMessagesUpdaterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessagesUpdaterSpec.swift; sourceTree = "<group>"; };
 		B27A9849D0D1701867E2D251 /* KinveyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyClient.swift; sourceTree = "<group>"; };
 		B27A98B616E0F28EF7E2AB65 /* ChatMessagesUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessagesUpdater.swift; sourceTree = "<group>"; };
+		B27A9941DF52FD8C90752C78 /* FakeChatMessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeChatMessagesParser.swift; sourceTree = "<group>"; };
 		B27A999C236AF47285536FF3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		B27A9A1D41033B1852F00DD1 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B27A9A38399A5ADBD05697B5 /* FakeKCSAppdataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeKCSAppdataStore.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		B27A9F339E198896D9FA2515 /* MobileAcademyStyleSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileAcademyStyleSheet.swift; sourceTree = "<group>"; };
 		B27A9F69A61694FD0E95A3A8 /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		B27A9FA3AE3DE8013A548CBD /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B27A9FA566206E55D008065A /* ChatMessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessagesParser.swift; sourceTree = "<group>"; };
 		CF77477B1D157D3997D6A846 /* Pods_UIKonf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKonf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E8FA8EA6F04D43AF7990A4 /* Pods-UIKonfSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKonfSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIKonfSpecs/Pods-UIKonfSpecs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +211,8 @@
 				B27A9F69A61694FD0E95A3A8 /* ChatMessage.swift */,
 				B27A98B616E0F28EF7E2AB65 /* ChatMessagesUpdater.swift */,
 				B27A9825F74CD9E375389E05 /* ChatMessagesUpdaterSpec.swift */,
+				B27A9FA566206E55D008065A /* ChatMessagesParser.swift */,
+				B27A9230302169B39138AC18 /* ChatMessagesParserSpec.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				B27A9ADDE170BA1A6E4E72CB /* FakeKinveyClient.swift */,
 				B27A9193D7752D34ACC48DC5 /* Kinvey */,
 				B27A95BA58441CB66F1E8CC5 /* FakeChatMessagesUpdater.swift */,
+				B27A9941DF52FD8C90752C78 /* FakeChatMessagesParser.swift */,
 			);
 			path = "Test Helpers";
 			sourceTree = "<group>";
@@ -558,6 +567,7 @@
 				B27A93F55967C178F3CC4E1D /* KinveyClient.swift in Sources */,
 				B27A9A8F0BBE06E70BB5E177 /* DefaultChatMessagePresenter.swift in Sources */,
 				B27A922BB503FC1CEA96BDDC /* RegistrationViewController.swift in Sources */,
+				B27A9ABD14858F4F13D0F130 /* ChatMessagesParser.swift in Sources */,
 				1EDB822CDA6033EB4B656EE0 /* DefaultChatMessagesSender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +585,8 @@
 				B27A94448029F71FA1DB7E81 /* DefaultChatMessagesProviderSpec.swift in Sources */,
 				B27A991D0CF4556A8A90AB98 /* FakeChatMessagesUpdater.swift in Sources */,
 				B27A97E3573339E3E2345DD1 /* DefaultChatMessagePresenterSpec.swift in Sources */,
+				B27A9B3817601C0108222499 /* FakeChatMessagesParser.swift in Sources */,
+				B27A930C252E10282BDFDE9D /* ChatMessagesParserSpec.swift in Sources */,
 				1EDB8D94A0B5926BC6EFE11F /* DefaultChatMessagesSenderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
