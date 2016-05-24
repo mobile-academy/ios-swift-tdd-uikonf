@@ -90,13 +90,34 @@ class ChatViewControllerSpec: QuickSpec {
             describe("pressing send button") {
                 beforeEach {
                     sut?.view
-                    
+
                     sut?.textView.text = "test-message"
                     sut?.didPressRightButton(nil)
                 }
-                
-                pending("should send entered text") {
-                    
+
+                it("should send entered text") {
+                    expect(fakeChatMessageSender.lastMessage).to(equal("test-message"))
+                }
+
+                context("when successful") {
+                    beforeEach {
+                        fakeChatMessageSender.simulateSendingSuccess()
+                    }
+
+                    it("should update messages") {
+                        expect(fakeChatMessagesProvider!.updateMessagesCalled).to(beTruthy())
+                    }
+                }
+
+                context("when failed") {
+                    beforeEach {
+                        let error = NSError(domain: "fixture.com", code: 1, userInfo: nil)
+                        fakeChatMessageSender.simulateSendingFailure(error)
+                    }
+
+                    it("should not update messages") {
+                        expect(fakeChatMessagesProvider!.updateMessagesCalled).to(beFalsy())
+                    }
                 }
             }
 

@@ -4,6 +4,7 @@ import Foundation
 
 class FakeKCSAppdataStore: KCSAppdataStore {
 
+    var lastSavedObject: AnyObject?
     var lastQuery: AnyObject?
 
     private var lastCompletionBlock: KCSCompletionBlock?
@@ -28,4 +29,13 @@ class FakeKCSAppdataStore: KCSAppdataStore {
         
         return nil
     }
+    
+    override func saveObject(object: AnyObject!, withCompletionBlock completionBlock: KCSCompletionBlock!, withProgressBlock progressBlock: KCSProgressBlock!) -> KCSRequest! {
+        lastSavedObject = object
+        lastCompletionBlock = completionBlock
+        lastProgressBlock = progressBlock
+        
+        return nil
+    }
+
 }

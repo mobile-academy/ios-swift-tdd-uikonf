@@ -78,7 +78,12 @@ class ChatViewController: SLKTextViewController, ChatMessagesProviderDelegate {
     }
     
     override func didPressRightButton(sender: AnyObject?) {
-        // TODO: Sending would be useful in msg app.
+        chatMessageSender.send(self.textView.text) { [weak self] error in
+            guard let _self = self else { return }
+            guard error == nil else { return }
+
+            _self.chatMessagesProvider.updateMessages()
+        }
         super.didPressRightButton(sender)
     }
 
