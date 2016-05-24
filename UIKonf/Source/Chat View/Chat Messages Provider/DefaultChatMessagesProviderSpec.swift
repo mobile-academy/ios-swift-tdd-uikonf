@@ -88,6 +88,19 @@ class DefaultChatMessagesProviderSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("inserting messages") {
+                var chatMessage: ChatMessage!
+                beforeEach {
+                    chatMessage = ChatMessage(text: "Fixture Text 1")
+
+                    sut!.insertNewMessage(chatMessage)
+                }
+
+                it("should append message to messages array") {
+                    expect(sut!.chatMessages.last).to(equal(chatMessage))
+                }
+            }
         }
     }
 }

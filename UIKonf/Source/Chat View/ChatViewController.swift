@@ -23,11 +23,13 @@ protocol ChatMessagesProvider {
     var chatMessages: [ChatMessage] { get }
 
     func updateMessages()
+
+    func insertNewMessage(message: ChatMessage)
 }
 
 protocol ChatMessagesSender {
 
-    func send(message: String, completion: (ErrorType?) -> Void)
+    func send(message: String, completion: (ChatMessage?, ErrorType?) -> Void)
     
 }
 
@@ -78,11 +80,12 @@ class ChatViewController: SLKTextViewController, ChatMessagesProviderDelegate {
     }
     
     override func didPressRightButton(sender: AnyObject?) {
-        chatMessageSender.send(self.textView.text) { [weak self] error in
+        chatMessageSender.send(self.textView.text) { [weak self] message, error in
             guard let _self = self else { return }
-            guard error == nil else { return }
+            guard let message = message else { return }
 
-            _self.chatMessagesProvider.updateMessages()
+            _self.chatMessagesProvider.insertNewMessage(message)
+            _self.tableView?.reloadData()
         }
         super.didPressRightButton(sender)
     }

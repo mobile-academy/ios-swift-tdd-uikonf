@@ -28,4 +28,8 @@ class DefaultChatMessagesProvider: ChatMessagesProvider {
             }
         }
     }
+
+    func insertNewMessage(message: ChatMessage) {
+        chatMessages.append(message)
+    }
 }
