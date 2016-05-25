@@ -18,16 +18,21 @@ class DefaultChatMessagesSenderSpec: QuickSpec {
 
         describe("sending message") {
             var fakeStore: FakeKCSAppdataStore!
+            var fakeParser: FakeChatMessagesParser!
 
             var completionCalled = false
+            var capturedMessage: ChatMessage?
             var capturedError: ErrorType?
 
             beforeEach {
                 fakeStore = FakeKCSAppdataStore()
                 sut.store = fakeStore
+                fakeParser = FakeChatMessagesParser()
+                sut.parser = fakeParser
 
-                sut.send("Fixture message") { error in
+                sut.send("Fixture message") { message, error in
                     completionCalled = true
+                    capturedMessage = message
                     capturedError = error
                 }
             }
@@ -37,12 +42,20 @@ class DefaultChatMessagesSenderSpec: QuickSpec {
             }
 
             context("when operation was successful") {
+                var message: ChatMessage!
+
                 beforeEach {
-                    fakeStore.simulateQuerySuccessWithResponse([])
+                    message = ChatMessage(text: "Fixture-Message")
+
+                    let response = [["fixture-key":"fixture-value"]]
+                    fakeParser.expectedChatMessagesToParse = response
+                    fakeParser.returnedChatMessages = [ message ]
+                    fakeStore.simulateQuerySuccessWithResponse(response)
                 }
 
                 it("should call completion without error") {
                     expect(completionCalled).to(beTruthy())
+                    expect(capturedMessage).to(equal(message))
                     expect(capturedError).to(beNil())
                 }
             }
@@ -55,6 +68,7 @@ class DefaultChatMessagesSenderSpec: QuickSpec {
 
                 it("should call completion with an error") {
                     expect(completionCalled).to(beTruthy())
+                    expect(capturedMessage).to(beNil())
                     expect(capturedError).notTo(beNil())
                 }
             }

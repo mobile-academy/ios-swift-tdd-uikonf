@@ -7,6 +7,7 @@ import Nimble
 class FakeChatMessagesProvider: ChatMessagesProvider {
 
     var updateMessagesCalled = false
+    var lastInsertedMessage: ChatMessage?
 
     weak var delegate: ChatMessagesProviderDelegate?
 
@@ -18,6 +19,11 @@ class FakeChatMessagesProvider: ChatMessagesProvider {
 
     func updateMessages() {
         updateMessagesCalled = true
+    }
+
+    func insertNewMessage(message: ChatMessage) {
+        lastInsertedMessage = message
+        chatMessages.append(message)
     }
 }
 
@@ -35,19 +41,19 @@ class FakeChatMessagePresenter: ChatMessagePresenter {
 class FakeChatMessagesSender: ChatMessagesSender {
 
     var lastMessage: String?
-    var lastCompletion: ((ErrorType?) -> Void)?
+    var lastCompletion: ((ChatMessage?, ErrorType?) -> Void)?
 
-    func send(message: String, completion: (ErrorType?) -> Void) {
+    func send(message: String, completion: (ChatMessage?, ErrorType?) -> Void) {
         lastMessage = message
         lastCompletion = completion
     }
 
-    func simulateSendingSuccess() {
-        lastCompletion?(nil)
+    func simulateSendingSuccess(chatMessage: ChatMessage) {
+        lastCompletion?(chatMessage, nil)
     }
 
     func simulateSendingFailure(error: ErrorType) {
-        lastCompletion?(error)
+        lastCompletion?(nil, error)
     }
 }
 
@@ -100,12 +106,20 @@ class ChatViewControllerSpec: QuickSpec {
                 }
 
                 context("when successful") {
+                    var chatMessage: ChatMessage!
                     beforeEach {
-                        fakeChatMessageSender.simulateSendingSuccess()
+                        fakeChatMessagesProvider!.chatMessages = []
+
+                        chatMessage = ChatMessage(text: "Fixture Chat Message 1")
+                        fakeChatMessageSender.simulateSendingSuccess(chatMessage)
                     }
 
-                    it("should update messages") {
-                        expect(fakeChatMessagesProvider!.updateMessagesCalled).to(beTruthy())
+                    it("should pass new message to provider") {
+                        expect(fakeChatMessagesProvider!.lastInsertedMessage).to(equal(chatMessage))
+                    }
+
+                    it("should reload table view") {
+                        expect(sut!.tableView!.numberOfRowsInSection(0)).to(equal(1))
                     }
                 }
 
