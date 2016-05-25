@@ -14,6 +14,10 @@ class DefaultChatMessagesSender: ChatMessagesSender {
     }
     
     func send(message: String, completion: (ErrorType?) -> Void) {
-        // TODO: sending
+        let newMessage = ["text" : message]
+        store.saveObject(newMessage, withCompletionBlock: { result, error in
+            completion(error)
+        }, withProgressBlock: nil)
     }
+
 }
